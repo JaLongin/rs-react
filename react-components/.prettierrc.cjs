@@ -1,4 +1,4 @@
-{
+module.exports = {
   "compilerOptions": {
     "target": "esnext",
     "lib": ["dom", "esnext", "dom.iterable"],
