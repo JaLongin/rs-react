@@ -2,6 +2,8 @@ import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import "./App.css";
+
 export function App() {
   return (
     <Routes>
