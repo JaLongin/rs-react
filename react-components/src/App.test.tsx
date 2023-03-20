@@ -4,16 +4,14 @@ import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
 import { App, WrappedApp } from "./App";
+import Card from "./components/Card";
+import About from "./pages/About";
 
 describe("App", () => {
-  it("Renders smth", () => {
+  it("Has nav bar", () => {
     render(<WrappedApp />);
     //
-    expect(
-      screen.getByRole("heading", {
-        level: 1,
-      })
-    ).toHaveTextContent("Hello World");
+    expect(screen.getByRole("navigation")).toHaveClass("navbar");
   });
   it("Render not found if incorrect path", () => {
     render(
@@ -26,5 +24,18 @@ describe("App", () => {
         level: 1,
       })
     ).toHaveTextContent("not found");
+  });
+  it("Card has heading", () => {
+    render(<Card imgSrc="" name="Hey" desc="Lorem" />);
+    expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent("Hey");
+  });
+  it("Has about page with correct sub-heading", () => {
+    render(<About />);
+    //
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+      })
+    ).toHaveTextContent("About");
   });
 });

@@ -1,10 +1,20 @@
-*{
+* {
   box-sizing: border-box;
 }
-.card{
+.card {
   width: 160px;
 }
-.card-image{
+.card-image {
   height: 160px;
   aspect-ratio: 1;
+}
+.card-wrap {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.app-wrap{
+  padding: 5px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
 }

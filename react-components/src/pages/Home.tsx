@@ -1,11 +1,25 @@
-import Card from "../components/Card";
 import React from "react";
+
+import Card from "../components/Card";
+import SearchBar from "../components/SearchBar";
 import car from "../assets/car.jpg";
+import train from "../assets/train.jpg";
 function Home() {
   return (
     <>
-      <h1>Hello World, biii</h1>
-      <Card imgSrc={car} name="car" desc="woo-hoo" />
+      <div className="card-wrap">
+        <SearchBar />
+        <Card imgSrc={car} name="car" desc="woo-hoo" />
+        <Card imgSrc={train} name="not a car" desc="still woo-hoo" />
+        <Card imgSrc={car} name="car" desc="woo-hoo" />
+        <Card imgSrc={train} name="not a car" desc="still woo-hoo" />
+        <Card imgSrc={car} name="car" desc="woo-hoo" />
+        <Card imgSrc={train} name="not a car" desc="still woo-hoo" />
+        <Card imgSrc={car} name="car" desc="woo-hoo" />
+        <Card imgSrc={train} name="not a car" desc="still woo-hoo" />
+        <Card imgSrc={car} name="car" desc="woo-hoo" />
+        <Card imgSrc={train} name="not a car" desc="still woo-hoo" />
+      </div>
     </>
   );
 }
