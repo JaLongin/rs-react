@@ -28,19 +28,18 @@
   padding: 6px 31px;
   margin: 0 auto;
   overflow: hidden;
-  background: url("./assets/icons8-search-30.png") no-repeat left;
-    background-size: auto;
+  background: url("./assets/images/icons8-search-30.png") no-repeat left;
+  background-size: auto;
   background-size: 30px;
 }
-.search-bar:focus{
+.search-bar:focus {
   border: 2px rgb(0, 0, 255) solid;
   outline: none;
 }
-.header{
+.header {
   display: flex;
   gap: 50px;
 }
-.navbar-nav{
+.navbar-nav {
   list-style: none;
-  
 }

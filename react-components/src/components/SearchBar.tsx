@@ -12,14 +12,6 @@ export default function SearchBar() {
       (event.target as HTMLInputElement).value as string
     );
   };
-  // function saveInput(e: React.SyntheticEvent) {
-  //   e.preventDefault();
-  //   const target = e.target as HTMLInputElement;
-  //   if (target) {
-  //     localStorage.setItem("last-search", target.value as string);
-  //   }
-  //   console.log("a");
-  // }
   return (
     <input
       className="search-bar"

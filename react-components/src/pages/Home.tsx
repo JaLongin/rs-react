@@ -2,8 +2,8 @@ import React from "react";
 
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
-import car from "../assets/car.jpg";
-import train from "../assets/train.jpg";
+import car from "../assets/images/car.jpg";
+import train from "../assets/images/train.jpg";
 function Home() {
   return (
     <>

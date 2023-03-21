@@ -6,6 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 import { App, WrappedApp } from "./App";
 import Card from "./components/Card";
 import About from "./pages/About";
+import SearchBar from "./components/SearchBar";
 
 describe("App", () => {
   it("Has nav bar", () => {
@@ -37,5 +38,10 @@ describe("App", () => {
         level: 2,
       })
     ).toHaveTextContent("About");
+  });
+  it("Search bar has default message on first render", () => {
+    render(<SearchBar />);
+    //
+    expect(screen.getByRole("textbox")).toHaveValue("search");
   });
 });
