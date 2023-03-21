@@ -12,9 +12,35 @@
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
+  margin: 30px 0;
 }
-.app-wrap{
+.app-wrap {
   padding: 5px 20px;
   max-width: 1600px;
   margin: 0 auto;
+}
+.search-bar {
+  display: block;
+  height: 38px;
+  font-size: 20px;
+  border: 2px rgb(175, 6, 6) solid;
+  border-radius: 14px;
+  padding: 6px 31px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: url("./assets/icons8-search-30.png") no-repeat left;
+    background-size: auto;
+  background-size: 30px;
+}
+.search-bar:focus{
+  border: 2px rgb(0, 0, 255) solid;
+  outline: none;
+}
+.header{
+  display: flex;
+  gap: 50px;
+}
+.navbar-nav{
+  list-style: none;
+  
 }

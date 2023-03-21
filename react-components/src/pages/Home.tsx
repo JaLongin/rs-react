@@ -7,8 +7,8 @@ import train from "../assets/train.jpg";
 function Home() {
   return (
     <>
+      <SearchBar />
       <div className="card-wrap">
-        <SearchBar />
         <Card imgSrc={car} name="car" desc="woo-hoo" />
         <Card imgSrc={train} name="not a car" desc="still woo-hoo" />
         <Card imgSrc={car} name="car" desc="woo-hoo" />

@@ -20,5 +20,12 @@ export default function SearchBar() {
   //   }
   //   console.log("a");
   // }
-  return <input type={"text"} onChange={handleChange} value={message}></input>;
+  return (
+    <input
+      className="search-bar"
+      type={"text"}
+      onChange={handleChange}
+      value={message}
+    ></input>
+  );
 }
