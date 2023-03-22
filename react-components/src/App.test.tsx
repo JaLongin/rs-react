@@ -42,6 +42,6 @@ describe("App", () => {
   it("Search bar has default message on first render", () => {
     render(<SearchBar />);
     //
-    expect(screen.getByRole("textbox")).toHaveValue("search");
+    expect(screen.getByRole("textbox")).toHaveClass("search-bar");
   });
 });

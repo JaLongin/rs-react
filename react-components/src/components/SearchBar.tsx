@@ -1,23 +1,37 @@
 import React from "react";
-import { useState } from "react";
 
-export default function SearchBar() {
-  const [message, setMessage] = useState(
-    localStorage.getItem("last-search") || "search"
-  );
-  const handleChange = (event: React.SyntheticEvent) => {
-    setMessage((event.target as HTMLInputElement).value as string);
-    localStorage.setItem(
-      "last-search",
-      (event.target as HTMLInputElement).value as string
+export default class SearchBar extends React.Component {
+  constructor(props: object) {
+    super(props);
+    this.state = {
+      value:
+        localStorage.getItem("lastSearch") !== null
+          ? localStorage.getItem("lastSearch")
+          : "",
+    };
+  }
+  componentDidMount(): void {
+    if (localStorage.getItem("lastSearch") !== null) {
+      this.setState({ value: localStorage.getItem("lastSearch") });
+    } else {
+      localStorage.setItem(
+        "lastSearch",
+        (this.state as { value: string }).value
+      );
+    }
+  }
+  render(): React.ReactNode {
+    return (
+      <input
+        className="search-bar"
+        type={"text"}
+        onChange={(e) => {
+          this.setState({ value: e.target.value });
+          localStorage.setItem("lastSearch", e.target.value);
+        }}
+        value={(this.state as { value: string }).value}
+        placeholder="search"
+      ></input>
     );
-  };
-  return (
-    <input
-      className="search-bar"
-      type={"text"}
-      onChange={handleChange}
-      value={message}
-    ></input>
-  );
+  }
 }
