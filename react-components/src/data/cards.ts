@@ -1,5 +1,5 @@
-import car from "../images/car.jpg";
-import train from "../images/train.jpg";
+import car from "../assets/images/car.jpg";
+import train from "../assets/images/train.jpg";
 
 interface Card {
   src: string;

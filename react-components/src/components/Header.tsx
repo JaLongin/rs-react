@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter, WithRouterProps } from "../HOCs/withRouter";
-import pageList from "../assets/data/pagesList.json";
+import pageList from "../data/pagesList.json";
 
 function Header({ location }: WithRouterProps) {
   const pagePath = location.pathname.slice(1);

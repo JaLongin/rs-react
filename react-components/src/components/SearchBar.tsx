@@ -20,6 +20,9 @@ export default class SearchBar extends React.Component {
       );
     }
   }
+  componentWillUnmount(): void {
+    localStorage.setItem("lastSearch", (this.state as { value: string }).value);
+  }
   render(): React.ReactNode {
     return (
       <input
@@ -27,7 +30,6 @@ export default class SearchBar extends React.Component {
         type={"text"}
         onChange={(e) => {
           this.setState({ value: e.target.value });
-          localStorage.setItem("lastSearch", e.target.value);
         }}
         value={(this.state as { value: string }).value}
         placeholder="search"

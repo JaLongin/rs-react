@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
-import { cards } from "../assets/data/cards";
+import { cards } from "../data/cards";
 
 function Home() {
   return (
