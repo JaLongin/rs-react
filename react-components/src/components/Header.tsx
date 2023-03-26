@@ -26,6 +26,11 @@ function Header({ location }: WithRouterProps) {
               About
             </Link>
           </li>
+          <li>
+            <Link to={"/Forms"} className="nav-link">
+              Forms
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

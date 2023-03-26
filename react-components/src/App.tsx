@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import "./App.css";
 import Header from "./components/Header";
+import Forms from "./pages/Forms";
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
+        <Route path="/Forms" element={<Forms />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
