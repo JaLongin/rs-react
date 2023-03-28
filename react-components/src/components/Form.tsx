@@ -1,10 +1,34 @@
 import React, { FormEvent } from "react";
+import Cards from "../util/types/Cards";
 
-type formProps = {
-  num: number;
+type FormProps = {
+  updateFormPage: (card: Cards) => void;
 };
 
-class Form extends React.Component {
+class Form extends React.Component<FormProps> {
+  getColor() {
+    switch (true) {
+      case this.redRadioRef.current?.checked:
+        return this.redRadioRef.current?.value;
+      case this.blueRadioRef.current?.checked:
+        return this.blueRadioRef.current?.value;
+      case this.greenRadioRef.current?.checked:
+        return this.greenRadioRef.current?.value;
+      default:
+        return null;
+    }
+  }
+  getThisThat() {
+    switch (true) {
+      case this.thisCheckBox.current?.checked &&
+        this.thatCheckBox.current?.checked:
+        return `${this.thisCheckBox.current?.value}${this.thatCheckBox.current?.value}`;
+      case this.thatCheckBox.current?.checked:
+        return this.thisCheckBox.current?.value;
+      case this.thisCheckBox.current?.checked:
+        return this.thisCheckBox.current?.value;
+    }
+  }
   textRef = React.createRef<HTMLInputElement>();
   dateRef = React.createRef<HTMLInputElement>();
   fileRef = React.createRef<HTMLInputElement>();
@@ -36,8 +60,24 @@ class Form extends React.Component {
         console.log(this.greenRadioRef.current?.value);
         break;
     }
+    const card: Cards = {
+      file: this.fileRef.current?.value,
+      name: this.textRef.current?.value,
+      color: this.getColor(),
+      thisThat: this.getThisThat(),
+    };
+    this.props.updateFormPage(card);
+    (this.textRef.current as HTMLInputElement).value = "";
+    (this.dateRef.current as HTMLInputElement).value = "";
+    (this.fileRef.current as HTMLInputElement).value = "";
+    (this.selectRef.current as HTMLSelectElement).value = "Yeah";
+    (this.redRadioRef.current as HTMLInputElement).checked = false;
+    (this.greenRadioRef.current as HTMLInputElement).checked = false;
+    (this.blueRadioRef.current as HTMLInputElement).checked = false;
+    (this.thisCheckBox.current as HTMLInputElement).checked = false;
+    (this.thatCheckBox.current as HTMLInputElement).checked = false;
   };
-  constructor(props: formProps) {
+  constructor(props: FormProps) {
     super(props);
   }
   render() {
@@ -46,7 +86,7 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input ref={this.textRef} type={"text"}></input>
           <input ref={this.dateRef} type={"date"}></input>
-          <input ref={this.fileRef} type={"file"}></input>
+          <input ref={this.fileRef} type={"file"} accept=".jpg"></input>
           <input
             type={"radio"}
             name="color"
@@ -91,7 +131,9 @@ class Form extends React.Component {
             id="that-checkbox"
           ></input>
           <label htmlFor="this-checkbox">That</label>
-          <button type="submit">Confirm</button>
+          <button type="submit" onSubmit={this.handleSubmit}>
+            Confirm
+          </button>
         </form>
       </div>
     );
