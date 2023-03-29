@@ -2,7 +2,7 @@ import React, { FormEvent } from "react";
 import Cards from "../util/types/Cards";
 
 type FormProps = {
-  updateFormPage: (card: Cards) => void;
+  updateFormPage?: (card: Cards) => void;
 };
 type ErrorState = {
   dateError: string | null;
@@ -78,7 +78,9 @@ class Form extends React.Component<FormProps, ErrorState> {
         thisThat: this.getThisThat(),
         date: this.dateRef.current?.value,
       };
-      this.props.updateFormPage(card);
+      if (this.props.updateFormPage) {
+        this.props.updateFormPage(card);
+      }
       this.setState(errorState);
       (this.textRef.current as HTMLInputElement).value = "";
       (this.dateRef.current as HTMLInputElement).value = "";
@@ -166,6 +168,7 @@ class Form extends React.Component<FormProps, ErrorState> {
           <input
             ref={this.dateRef}
             type={"date"}
+            data-testId="date-input"
             value={
               this.state.dateInput
                 ? this.state.dateInput

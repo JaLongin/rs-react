@@ -7,6 +7,9 @@ import { App, WrappedApp } from "./App";
 import Card from "./components/Card";
 import About from "./pages/About";
 import SearchBar from "./components/SearchBar";
+import Forms from "./pages/Forms";
+import { Form } from "./components/Form";
+import FormCard from "./components/FormCard";
 
 describe("App", () => {
   it("Has nav bar", () => {
@@ -43,5 +46,28 @@ describe("App", () => {
     render(<SearchBar />);
     //
     expect(screen.getByRole("textbox")).toHaveClass("search-bar");
+  });
+  it("Has forms page", () => {
+    render(<Forms />);
+    expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
+      "Forms"
+    );
+  });
+  it("Form has correct default date", () => {
+    render(<Form />);
+    expect(screen.getByTestId("date-input")).toHaveValue(
+      new Date().toISOString().substr(0, 10)
+    );
+  });
+  it("Form has correct default date", () => {
+    const card = {
+      file: "file",
+      name: "name",
+      color: "color",
+      thisThat: "this",
+      date: "date",
+    };
+    render(<FormCard data={card} />);
+    expect(screen.getByTestId("card-file")).toHaveTextContent("file");
   });
 });
