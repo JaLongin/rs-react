@@ -13,7 +13,7 @@ class FormCard extends React.Component<MyProps> {
     return (
       <div className="card">
         <ul>
-          <li data-testId="card-file">
+          <li data-testid="card-file">
             {this.props.data.file?.split("\\").slice(-1)}
           </li>
           <li>{this.props.data.color}</li>

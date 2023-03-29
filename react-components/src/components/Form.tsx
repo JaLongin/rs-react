@@ -168,7 +168,7 @@ class Form extends React.Component<FormProps, ErrorState> {
           <input
             ref={this.dateRef}
             type={"date"}
-            data-testId="date-input"
+            data-testid="date-input"
             value={
               this.state.dateInput
                 ? this.state.dateInput
