@@ -12,10 +12,13 @@ class FormCard extends React.Component<MyProps> {
   render(): React.ReactNode {
     return (
       <div className="card">
-        <img className="card-image" src={this.props.data.file}></img>
-        <div className="card-text">
-          <h3>{this.props.data.name}</h3>
-        </div>
+        <ul>
+          <li>{this.props.data.file?.split("\\").slice(-1)}</li>
+          <li>{this.props.data.color}</li>
+          <li>{this.props.data.thisThat}</li>
+          <li>{this.props.data.name}</li>
+          <li>{this.props.data.date}</li>
+        </ul>
       </div>
     );
   }
