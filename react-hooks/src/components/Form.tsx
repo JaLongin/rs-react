@@ -104,7 +104,7 @@ function Form(props: FormProps) {
       (textRef.current as HTMLInputElement).value = "";
       (dateRef.current as HTMLInputElement).value = "";
       (fileRef.current as HTMLInputElement).value = "";
-      (selectRef.current as HTMLSelectElement).value = "true";
+      (selectRef.current as HTMLSelectElement).value = "";
       (redRadioRef.current as HTMLInputElement).checked = false;
       (greenRadioRef.current as HTMLInputElement).checked = false;
       (blueRadioRef.current as HTMLInputElement).checked = false;
