@@ -1,39 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default class SearchBar extends React.Component {
-  constructor(props: object) {
-    super(props);
-    this.state = {
-      value:
-        localStorage.getItem("lastSearch") !== null
-          ? localStorage.getItem("lastSearch")
-          : "",
+export default function SearchBar() {
+  const [value, setValue] = useState(
+    localStorage.getItem("lastSearch") !== null
+      ? localStorage.getItem("lastSearch")
+      : ""
+  );
+  useEffect(() => {
+    return () => {
+      console.log(value, 1);
+      localStorage.setItem("lastSearch", value as string);
     };
-  }
-  componentDidMount(): void {
-    if (localStorage.getItem("lastSearch") !== null) {
-      this.setState({ value: localStorage.getItem("lastSearch") });
-    } else {
-      localStorage.setItem(
-        "lastSearch",
-        (this.state as { value: string }).value
-      );
-    }
-  }
-  componentWillUnmount(): void {
-    localStorage.setItem("lastSearch", (this.state as { value: string }).value);
-  }
-  render(): React.ReactNode {
-    return (
-      <input
-        className="search-bar"
-        type={"text"}
-        onChange={(e) => {
-          this.setState({ value: e.target.value });
-        }}
-        value={(this.state as { value: string }).value}
-        placeholder="search"
-      ></input>
-    );
-  }
+  });
+  useEffect(() => {
+    console.log(value, 3, localStorage.getItem("lastSearch"));
+  });
+  return (
+    <input
+      className="search-bar"
+      type={"text"}
+      onChange={(e) => {
+        setValue(e.target.value);
+      }}
+      value={value as string}
+      placeholder="search"
+    ></input>
+  );
 }
