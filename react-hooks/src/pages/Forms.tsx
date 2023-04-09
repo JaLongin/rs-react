@@ -13,8 +13,8 @@ function Forms() {
       <h2>Forms</h2>
       <Form updateFormPage={updateFormsPage} />
       <div>
-        {pageState.map((card) => (
-          <FormCard key={card.name} data={card} />
+        {pageState.map((card, index) => (
+          <FormCard key={index} data={card} />
         ))}
       </div>
     </div>

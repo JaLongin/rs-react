@@ -52,7 +52,7 @@
   border-radius: 5px;
   margin: 5px;
 }
-#file-label:hover{
+#file-label:hover {
   cursor: pointer;
   background-color: #969595;
 }
@@ -63,4 +63,12 @@
   height: 20px;
   margin: 5px;
   color: rgb(204, 6, 6);
+}
+input,
+select:hover,
+label {
+  cursor: pointer;
+}
+.confirm {
+  margin-top: 15px;
 }

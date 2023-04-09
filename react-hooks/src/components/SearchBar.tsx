@@ -6,15 +6,17 @@ export default function SearchBar() {
       ? localStorage.getItem("lastSearch")
       : ""
   );
+
   useEffect(() => {
-    return () => {
-      console.log(value, 1);
+    function cleanUp() {
       localStorage.setItem("lastSearch", value as string);
+    }
+    window.addEventListener("beforeunload", cleanUp);
+    return () => {
+      cleanUp();
+      window.removeEventListener("beforeunload", cleanUp);
     };
-  });
-  useEffect(() => {
-    console.log(value, 3, localStorage.getItem("lastSearch"));
-  });
+  }, [value]);
   return (
     <input
       className="search-bar"
